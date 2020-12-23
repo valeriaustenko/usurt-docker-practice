@@ -1,1 +1,0 @@
-# usurt-docker-practice
