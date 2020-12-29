@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+    sid_server_sinx:
+        build:
+            context: /home/sigumnov/sigumnov/server_sinx/
+            dockerfile: Dockerfile
+    sid_server_1x:
+        build:
+            context: /home/sigumnov/sigumnov/server_1x/
+            dockerfile: Dockerfile
+        depends_on:
+        - sid_server_sinx
+    control:
+        build:
+            context: /home/sigumnov/sigumnov/client/
+            dockerfile: Dockerfile
+        depends_on:
+        - sid_server_1x
+
