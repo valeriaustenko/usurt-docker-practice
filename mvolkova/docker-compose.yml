@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+    volkova_server_stepenp:
+        build:
+            context: /home/mvolkova/volkova_server_stepenP/
+            dockerfile: Dockerfile
+    volkova_server_dobavlenie_constanti:
+        build:
+            context: /home/mvolkova/volkova_server_dobavlenie_constanti/
+            dockerfile: Dockerfile
+        depends_on:
+        - volkova_server_stepenp
+    control:
+        build:
+            context: /home/mvolkova/volkova_client/
+            dockerfile: Dockerfile
+        depends_on:
+        - volkova_server_dobavlenie_constanti
