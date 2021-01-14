@@ -1,0 +1,23 @@
+version: '3'
+services:
+   ay-diff:
+          build:
+                  context: ./diff/
+                  dockerfile: Dockerfile
+   ay-mult:
+          build:
+                  context: ./mult/
+                  dockerfile: Dockerfile
+   ay-expon:
+          build:
+                  context: ./expon/
+                  dockerfile: Dockerfile
+   ay-control:
+          build:
+                  context: ./control/
+                  dockerfile: Dockerfile
+          depends_on:
+          - ay-diff
+          - ay-mult
+          - ay-expon
+
