@@ -1,0 +1,24 @@
+version: '3'
+services:
+   db-multiply:
+          build:
+                  context: ./multiply/
+                  dockerfile: Dockerfile
+   db-expon:
+          build:
+                  context: ./expon/
+                  dockerfile: Dockerfile
+   db-summ:
+          build:
+                  context: ./summ/
+                  dockerfile: Dockerfile
+   db-control:
+          build:
+                  context: ./control/
+                  dockerfile: Dockerfile
+          volumes:
+                  - /home/dbritov:/common
+          depends_on:
+          - db-multiply
+          - db-expon
+          - db-summ
