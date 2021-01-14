@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+    purgina_server_stepen_p:
+        build:
+            context: /home/dpurgina/usurt-docker-practice/dpurgina/server_stepen_p/
+            dockerfile: Dockerfile
+    purgina_server_3x:
+        build:
+            context: /home/dpurgina/usurt-docker-practice/dpurgina/server_3x/
+            dockerfile: Dockerfile
+    purgina_server_plus:
+        build:
+            context: /home/dpurgina/usurt-docker-practice/dpurgina/server_plus/
+            dockerfile: Dockerfile  
+    control:
+        build:
+            context: /home/dpurgina/usurt-docker-practice/dpurgina/control/
+            dockerfile: Dockerfile
+        depends_on:
+        - purgina_server_stepen_p
+        - purgina_server_3x
+        - purgina_server_plus
