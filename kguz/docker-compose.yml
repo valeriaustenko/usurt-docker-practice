@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+    kguz_server_2x:
+        build:
+            context: /home/kguz/server_2x/
+            dockerfile: Dockerfile
+    kguz_server_sinx:
+        build:
+            context: /home/kguz/server_sin_x/
+            dockerfile: Dockerfile
+        depends_on:
+        - kguz_server_2x
+    kguz_server_cosx:
+        build:
+            context: /home/kguz/server_cos_x/
+            dockerfile: Dockerfile
+        depends_on:
+        - kguz_server_2x
+    kguz_server_plus:
+        build:
+            context: /home/kguz/server_plus/
+            dockerfile: Dockerfile
+        depends_on:
+        - kguz_server_sinx 
+        - kguz_server_cosx  
+    control:
+        build:
+            context: /home/kguz/control/
+            dockerfile: Dockerfile
+        depends_on:
+        - kguz_server_plus
