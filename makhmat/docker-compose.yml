@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+    makhmat_server_2x:
+        build:
+            context: /home/makhmat/usurt-docker-practice/makhmat/server_x1x2/
+            dockerfile: Dockerfile
+    makhmat_server_sinx:
+        build:
+            context: /home/makhmat/usurt-docker-practice/makhmat/server_sin_x/
+            dockerfile: Dockerfile
+    makhmat_server_3x:
+        build:
+            context: /home/makhmat/usurt-docker-practice/makhmat/server_x1x2/
+            dockerfile: Dockerfile
+    control:
+        build:
+            context: /home/makhmat/usurt-docker-practice/makhmat/control/
+            dockerfile: Dockerfile
+        depends_on:
+        - makhmat_server_2x
+        - makhmat_server_sinx
+        - makhmat_server_3x

@@ -1,0 +1,4 @@
+FROM python
+COPY makhmat_server_1_delit_X.py /app/
+EXPOSE 1562
+CMD ["python", "/app/makhmat_server_1_delit_X.py"]
